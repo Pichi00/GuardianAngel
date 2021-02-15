@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Granny.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Halo.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/icon.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3096, 24 )
@@ -25,9 +24,6 @@ position = Vector2( 176, 424 )
 
 [node name="Granny" parent="." instance=ExtResource( 2 )]
 position = Vector2( -560, 512 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -550, 432 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 8
