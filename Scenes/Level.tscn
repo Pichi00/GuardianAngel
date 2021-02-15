@@ -1,25 +1,46 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Granny.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Halo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1008, 24 )
+extents = Vector2( 3096, 24 )
 
 [node name="Level" type="Node2D"]
 
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 824, 432 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1120, 384 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 440, 504 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176, 424 )
+
 [node name="Granny" parent="." instance=ExtResource( 2 )]
-position = Vector2( 424, 464 )
+position = Vector2( -560, 512 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 152, 336 )
+position = Vector2( -550, 432 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 440, 552 )
 shape = SubResource( 1 )
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 552, 168 )
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 440, 560 )
+scale = Vector2( 96.75, 1 )
+texture = ExtResource( 5 )
+
+[node name="Halo" parent="." instance=ExtResource( 4 )]
