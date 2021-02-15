@@ -1,9 +1,30 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Graphics/Granny.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Granny.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/JitterFreePixelArt.tres" type="Material" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Graphics/HP_border.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/HP_point.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/Heart.png" type="Texture" id=7]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 30, 0, 30, 30 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 64.0
@@ -48,6 +69,33 @@ collision_layer = 2
 collision_mask = 12
 script = ExtResource( 2 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HR" type="Sprite" parent="CanvasLayer"]
+material = ExtResource( 3 )
+position = Vector2( 26, 330 )
+scale = Vector2( 2, 1e-05 )
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( 0, -16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8, 16 )
+region_filter_clip = true
+
+[node name="HR_border" type="Sprite" parent="CanvasLayer"]
+material = ExtResource( 3 )
+position = Vector2( 24, 200 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Heart" type="AnimatedSprite" parent="CanvasLayer"]
+material = ExtResource( 3 )
+position = Vector2( 34, 174 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 10 )
+playing = true
+
 [node name="ScareArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
@@ -59,14 +107,13 @@ shape = SubResource( 1 )
 material = ExtResource( 3 )
 frames = SubResource( 6 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 180, -120 )
+offset = Vector2( 200, -120 )
 current = true
 zoom = Vector2( 0.6, 0.6 )
 

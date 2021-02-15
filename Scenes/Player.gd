@@ -17,4 +17,4 @@ func _physics_process(_delta):
 		motion.y = move_toward(motion.y, 0, FRICTION)
 	
 	translate(motion)
-	position.y = clamp(position.y, -256, 0)
+	position.y = clamp(position.y, -256, 16)
