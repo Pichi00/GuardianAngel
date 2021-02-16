@@ -11,13 +11,25 @@ extents = Vector2( 3096, 24 )
 [node name="Level" type="Node2D"]
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 456 )
+position = Vector2( -72, 344 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 352, 456 )
+position = Vector2( 224, 320 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4, 456 )
+position = Vector2( 44, 368 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 3 )]
+position = Vector2( -192, 296 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 464 )
+
+[node name="Enemy11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 173.5, 336 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 3 )]
+position = Vector2( -104, 475 )
 
 [node name="Enemy7" parent="." instance=ExtResource( 3 )]
 position = Vector2( -176, 461.5 )
@@ -40,3 +52,5 @@ scale = Vector2( 96.75, 1 )
 texture = ExtResource( 5 )
 
 [node name="Halo" parent="." instance=ExtResource( 4 )]
+[connection signal="attack" from="Halo" to="Granny" method="_on_Halo_attack"]
+[connection signal="idle" from="Halo" to="Granny" method="_on_Halo_idle"]

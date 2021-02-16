@@ -18,3 +18,9 @@ func _physics_process(_delta):
 	
 	translate(motion)
 	position.y = clamp(position.y, -256, 16)
+
+func idle():
+	$Sprite.animation = "Idle"
+
+func attack():
+	$Sprite.animation = "Attack"
