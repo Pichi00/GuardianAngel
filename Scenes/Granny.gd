@@ -3,11 +3,15 @@ extends KinematicBody2D
 var motion = Vector2.ZERO
 var gravity = 10
 var speed = 20
-var heartrate_level = 1
+var heartrate = 80.0
 signal game_over
 
 enum {WALK, SCARED}
 var state = WALK
+
+func _ready():
+	$CanvasLayer/HR.scale.y = (heartrate / 90.0)
+	$CanvasLayer/Label.text = str(heartrate) + " BPM"
 
 func _physics_process(_delta):
 	match state:
@@ -22,10 +26,11 @@ func _physics_process(_delta):
 func _on_ScareArea_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.queue_free()
-		heartrate_level += 1
-		$CanvasLayer/HR.scale.y = 2 * heartrate_level 
-		$CanvasLayer/Heart.speed_scale = heartrate_level + 0.5 
-		if heartrate_level == 4:
+		heartrate += 25.0
+		$CanvasLayer/HR.scale.y = (heartrate / 90.0)
+		$CanvasLayer/Heart.speed_scale = (heartrate / 45.0)
+		$CanvasLayer/Label.text = str(heartrate) + " BPM"
+		if heartrate >= 180:
 			emit_signal("game_over")
 		state = SCARED
 

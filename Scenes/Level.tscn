@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Scenes/Enemy2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Granny.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Halo.tscn" type="PackedScene" id=4]
@@ -11,31 +12,41 @@ extents = Vector2( 3096, 24 )
 [node name="Level" type="Node2D"]
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -72, 344 )
+position = Vector2( -344, 336 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 224, 320 )
+position = Vector2( -392, 448 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 44, 368 )
-
-[node name="Enemy9" parent="." instance=ExtResource( 3 )]
-position = Vector2( -192, 296 )
+position = Vector2( -256, 424 )
 
 [node name="Enemy10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 464 )
+position = Vector2( -512, 440 )
 
 [node name="Enemy11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 173.5, 336 )
-
-[node name="Enemy8" parent="." instance=ExtResource( 3 )]
-position = Vector2( -104, 475 )
+position = Vector2( -128, 368 )
 
 [node name="Enemy7" parent="." instance=ExtResource( 3 )]
 position = Vector2( -176, 461.5 )
 
 [node name="Granny" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1136, 512 )
+position = Vector2( -1408, 512 )
+scale = Vector2( 0.951956, 1 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -200, 504 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -352, 496 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 1 )]
+position = Vector2( -480, 504 )
+
+[node name="Enemy12" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, 504 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 1 )]
+position = Vector2( -688, 496 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 8

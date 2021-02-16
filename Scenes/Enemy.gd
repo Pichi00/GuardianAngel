@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var motion = Vector2(-1,0)
-var speed = 100
+var speed = 70
 var direction
 var granny_detected = false
 
