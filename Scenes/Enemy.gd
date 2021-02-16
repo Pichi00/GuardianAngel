@@ -5,6 +5,11 @@ var speed = 70
 var direction
 var granny_detected = false
 
+func _ready():
+	randomize()
+	global_position.y = rand_range(280.0 , 512.0)
+	global_position.x = get_tree().get_nodes_in_group("Granny")[0].global_position.x + 500
+
 func _physics_process(delta):
 	if !granny_detected:
 		translate(motion.normalized() * speed * delta)

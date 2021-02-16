@@ -7,6 +7,7 @@ var jump_force = -800
 
 func _ready():
 	randomize()
+	global_position.x = get_tree().get_nodes_in_group("Granny")[0].global_position.x + 500
 
 func _physics_process(_delta):
 	motion.y += global.gravity

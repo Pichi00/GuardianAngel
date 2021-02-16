@@ -11,6 +11,8 @@ signal idle
 
 func _on_Halo_body_entered(body):
 	body.queue_free()
+	global.points += 15
+
 func _physics_process(_delta):
 	match state:
 		STAY:
