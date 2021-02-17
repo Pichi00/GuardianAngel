@@ -1,8 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Graphics/TwitterButton.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/ItchButton.png" type="Texture" id=3]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -12,9 +17,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0784314, 0.129412, 0.25098, 1 )
 
-[node name="Button" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="."]
 margin_left = 320.0
-margin_top = 128.0
+margin_top = 64.0
 margin_right = 640.0
-margin_bottom = 232.0
-text = "Start"
+margin_bottom = 168.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="Button" parent="."]
+margin_left = 320.0
+margin_top = 224.0
+margin_right = 640.0
+margin_bottom = 328.0
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="."]
+margin_left = 320.0
+margin_top = 376.0
+margin_right = 640.0
+margin_bottom = 480.0
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TwitterButton" type="TextureButton" parent="."]
+margin_left = 768.0
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 512.0
+texture_normal = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 856.0
+margin_top = 448.0
+margin_right = 920.0
+margin_bottom = 512.0
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="TwitterButton" to="." method="_on_TwitterButton_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

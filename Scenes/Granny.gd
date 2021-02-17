@@ -31,7 +31,8 @@ func _on_ScareArea_body_entered(body):
 		$CalmDownTimer.start()
 		update_heart()
 		if heartrate >= 180:
-			emit_signal("game_over")
+			#emit_signal("game_over")
+			game_over()
 		state = SCARED
 
 func back_to_walk():
@@ -58,3 +59,6 @@ func update_heart():
 
 func update_points():
 	$CanvasLayer/Points_Label.text = str(global.points)
+
+func game_over():
+	get_tree().change_scene("res://Scenes/DeathScreen.tscn")
