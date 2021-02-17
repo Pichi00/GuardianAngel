@@ -10,10 +10,11 @@ enum {WALK, SCARED}
 var state = WALK
 
 func _ready():
-	$CanvasLayer/HR.scale.y = (heartrate / 90.0)
-	$CanvasLayer/Label.text = str(heartrate) + " BPM"
+	update_heart()
+	update_points()
 
 func _physics_process(_delta):
+	update_points()
 	match state:
 		WALK:
 			motion.y += global.gravity
@@ -27,9 +28,8 @@ func _on_ScareArea_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.queue_free()
 		heartrate += 25.0
-		$CanvasLayer/HR.scale.y = (heartrate / 90.0)
-		$CanvasLayer/Heart.speed_scale = (heartrate / 45.0)
-		$CanvasLayer/Label.text = str(heartrate) + " BPM"
+		$CalmDownTimer.start()
+		update_heart()
 		if heartrate >= 180:
 			emit_signal("game_over")
 		state = SCARED
@@ -42,3 +42,19 @@ func _on_Halo_idle():
 
 func _on_Halo_attack():
 	$Player.attack()
+
+
+func _on_CalmDownTimer_timeout():
+	if heartrate > 80:
+		heartrate -= 5
+		update_heart()
+	else:
+		$CalmDownTimer.stop()
+
+func update_heart():
+	$CanvasLayer/HR.scale.y = (heartrate / 90.0)
+	$CanvasLayer/Heart.speed_scale = (heartrate / 45.0)
+	$CanvasLayer/BPM_Label.text = str(heartrate) + " BPM"
+
+func update_points():
+	$CanvasLayer/Points_Label.text = str(global.points)

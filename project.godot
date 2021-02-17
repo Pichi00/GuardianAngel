@@ -18,6 +18,8 @@ _global_script_class_icons={
 config/name="Godot Wild Jam 30"
 run/main_scene="res://Scenes/Level.tscn"
 boot_splash/image="res://JamLogo.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.0784314, 0.129412, 0.25098, 1 )
 config/icon="res://icon.png"
 
 [autoload]

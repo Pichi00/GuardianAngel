@@ -14,6 +14,8 @@ func _ready():
 	$E1Spawner.wait_time = rand_range(E1_MIN, E1_MAX)
 	$E2Spawner.wait_time = rand_range(E2_MIN, E2_MAX)
 
+func _physics_process(delta):
+	$Floor.position.x = $Granny.position.x
 
 func _on_E1Spawner_timeout():
 	add_child(Enemy1.instance())
@@ -26,4 +28,4 @@ func _on_E2Spawner_timeout():
 
 
 func _on_PointsTimer_timeout():
-	global.points += 5
+	global.points += 10

@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3096, 24 )
+extents = Vector2( 9999, 8 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 6 )
@@ -19,25 +19,29 @@ Enemy2 = ExtResource( 1 )
 position = Vector2( -896, 512 )
 
 [node name="Granny" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1408, 512 )
+position = Vector2( -1408, 528 )
 scale = Vector2( 0.951956, 1 )
 
 [node name="Enemy8" parent="." instance=ExtResource( 1 )]
 position = Vector2( -688, 496 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( -1328, 544 )
 collision_layer = 8
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 440, 552 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="Floor"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 440, 560 )
-scale = Vector2( 96.75, 1 )
+position = Vector2( 0, 9 )
+scale = Vector2( 99, 0.375 )
 texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 12, 64, 48 )
 
 [node name="Halo" parent="." instance=ExtResource( 4 )]
 

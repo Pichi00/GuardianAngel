@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.129412, 0.25098, 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 320.0
+margin_top = 128.0
+margin_right = 640.0
+margin_bottom = 232.0
+text = "Start"
