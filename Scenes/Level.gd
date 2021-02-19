@@ -13,8 +13,9 @@ func _ready():
 	randomize()
 	$E1Spawner.wait_time = rand_range(E1_MIN, E1_MAX)
 	$E2Spawner.wait_time = rand_range(E2_MIN, E2_MAX)
+	$AudioStreamPlayer.volume_db = global.music
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$Floor.position.x = $Granny.position.x
 
 func _on_E1Spawner_timeout():

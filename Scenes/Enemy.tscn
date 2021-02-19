@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Graphics/Enemy.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Enemy.gd" type="Script" id=2]
@@ -7,7 +7,35 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 320.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 28, 27 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 28, 0, 28, 27 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 56, 0, 28, 27 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 84, 0, 28, 27 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 13.0
 height = 0.0
 
@@ -26,12 +54,15 @@ collision_mask = 2
 visible = false
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 material = ExtResource( 3 )
 position = Vector2( -4.76837e-07, -8.34465e-07 )
-texture = ExtResource( 1 )
+frames = SubResource( 6 )
+animation = "Idle"
+frame = 3
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 7 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

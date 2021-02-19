@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/DeathScreen.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Haven.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/JitterFreePixelArt.tres" type="Material" id=3]
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/superstar_memesbruh03.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/death_screen_button_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Styles/haven_normal.tres" type="StyleBox" id=7]
+[ext_resource path="res://Styles/haven_pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://Styles/haven_hover.tres" type="StyleBox" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 5 )
 
 [node name="DeathScreen" type="Control"]
 anchor_right = 1.0
@@ -10,27 +26,98 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource( 3 )
+margin_right = 960.0
+margin_bottom = 540.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="FinalScoreLabel" type="Label" parent="."]
-margin_left = 440.0
-margin_top = 144.0
-margin_right = 615.0
-margin_bottom = 158.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -188.0
+margin_top = -163.0
+margin_right = 188.0
+margin_bottom = -99.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Your score: 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FinalScoreLabel2" type="Label" parent="."]
-margin_left = 448.0
-margin_top = 96.0
-margin_right = 520.0
-margin_bottom = 110.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -215.0
+margin_top = 16.0
+margin_right = 215.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="."]
-margin_left = 392.0
-margin_top = 384.0
-margin_right = 576.0
-margin_bottom = 448.0
+[node name="MenuButton" type="Button" parent="."]
+margin_left = 776.0
+margin_top = 480.0
+margin_right = 1018.0
+margin_bottom = 552.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Back to menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[node name="PlayAgainButton" type="Button" parent="."]
+margin_left = 336.0
+margin_top = 456.0
+margin_right = 578.0
+margin_bottom = 528.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Play Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrannyLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -344.0
+margin_top = -71.0
+margin_right = 304.0
+margin_bottom = -4.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Don't worry son. You were the best guardian angel I could have."
+align = 1
+autowrap = true
+[connection signal="pressed" from="MenuButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
