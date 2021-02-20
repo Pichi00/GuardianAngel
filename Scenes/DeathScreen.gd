@@ -5,6 +5,7 @@ var sentence
 func _ready():
 	randomize()
 	$FinalScoreLabel.text = "Your score: " + str(global.points)
+	$BestComboLabel.text = "Best combo: " + str(global.best_combo)
 	sentence_id = randi()%4
 	print(sentence_id)
 	match sentence_id:
@@ -26,4 +27,4 @@ func _on_Button_pressed():
 
 func _on_PlayAgainButton_pressed():
 	get_tree().change_scene("res://Scenes/Level.tscn")
-	global.points = 0
+	#global.points = 0

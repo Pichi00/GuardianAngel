@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/EnemyAndEffects.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ComboLabel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ParticlesMaterial" id=1]
 lifetime_randomness = 1.0
@@ -24,7 +25,7 @@ damping_random = 0.69
 angle = 720.0
 scale = 1.5
 scale_random = 1.0
-color = Color( 0.0784314, 0.129412, 0.25098, 1 )
+color = Color( 0.980392, 0.380392, 0.286275, 1 )
 
 [node name="EnemyAndEffects" type="Node2D"]
 script = ExtResource( 1 )
@@ -39,4 +40,6 @@ one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 1 )
+
+[node name="ComboLabel" parent="." instance=ExtResource( 3 )]
 [connection signal="die" from="Enemy" to="." method="_on_Enemy_die"]

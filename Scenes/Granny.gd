@@ -11,6 +11,7 @@ enum {WALK, SCARED}
 var state = WALK
 
 func _ready():
+	$Scream.volume_db = global.sfx
 	update_heart()
 	update_points()
 
@@ -28,6 +29,7 @@ func _physics_process(_delta):
 func _on_ScareArea_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.queue_free()
+		$Scream.play()
 		heartrate += 25.0
 		$CalmDownTimer.start()
 		update_heart()
