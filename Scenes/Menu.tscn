@@ -40,9 +40,9 @@ __meta__ = {
 }
 
 [node name="TwitterButton" type="TextureButton" parent="."]
-margin_left = 384.0
+margin_left = 744.0
 margin_top = 448.0
-margin_right = 448.0
+margin_right = 808.0
 margin_bottom = 512.0
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 5 )
@@ -53,9 +53,9 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 512.0
+margin_left = 856.0
 margin_top = 448.0
-margin_right = 576.0
+margin_right = 920.0
 margin_bottom = 512.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 7 )
@@ -229,6 +229,7 @@ stream = ExtResource( 11 )
 stream = ExtResource( 11 )
 
 [node name="Wildcard" type="Sprite" parent="."]
+visible = false
 position = Vector2( 896, 448 )
 scale = Vector2( 0.203838, 0.203838 )
 texture = ExtResource( 12 )

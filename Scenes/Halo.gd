@@ -8,15 +8,18 @@ var state = STAY
 onready var player_pos = get_tree().get_nodes_in_group("Player")[0].global_position
 signal attack
 signal idle
+signal enemy_hit
 
 func _ready():
 	$HaloSound.volume_db = global.sfx
 	$EnemyDeathSound.volume_db = global.sfx
 
 func _on_Halo_body_entered(body):
-	body.queue_free()
+	body.die()
 	global.points += 15
 	$EnemyDeathSound.play()
+	global.combo += 1
+	emit_signal("enemy_hit", body)
 
 func _physics_process(_delta):
 	match state:
@@ -24,6 +27,7 @@ func _physics_process(_delta):
 			player_pos = get_tree().get_nodes_in_group("Player")[0].global_position
 			global_position.x = player_pos.x
 			global_position.y = player_pos.y - 22
+			global.combo = 0
 			if Input.is_action_just_pressed("attack"):
 				$ChangeDir.start()
 				$HaloSound.play()

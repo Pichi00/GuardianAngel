@@ -4,6 +4,7 @@ var motion = Vector2.ZERO
 var gravity = 10
 var speed = 20
 var heartrate = 80.0
+# warning-ignore:unused_signal
 signal game_over
 
 enum {WALK, SCARED}
@@ -58,7 +59,8 @@ func update_heart():
 	$CanvasLayer/BPM_Label.text = str(heartrate) + " BPM"
 
 func update_points():
-	$CanvasLayer/Points_Label.text = str(global.points)
+	$CanvasLayer/Points_Label.text = str(global.points)+ " Points"
 
 func game_over():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/DeathScreen.tscn")

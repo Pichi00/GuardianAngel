@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Graphics/Heart.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/HP_point.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/heart_border_back.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/HP_border.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/BPM_Border.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/superstar_memesbruh03.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Graphics/JitterFreePixelArt.tres" type="Material" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 30, 0, 30, 30 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.6
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="HeartBar" type="Node2D"]
+
+[node name="heart_border_back" type="Sprite" parent="."]
+position = Vector2( 32, 200 )
+scale = Vector2( 2, 1.6875 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="HR" type="Sprite" parent="."]
+material = ExtResource( 7 )
+position = Vector2( 32, 328 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -64 )
+
+[node name="HR_border" type="Sprite" parent="."]
+material = ExtResource( 7 )
+position = Vector2( 30, 200 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Heart" type="AnimatedSprite" parent="."]
+material = ExtResource( 7 )
+position = Vector2( 40, 176 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="BPM_Border" type="Sprite" parent="."]
+material = ExtResource( 7 )
+position = Vector2( 40, 324 )
+texture = ExtResource( 5 )
+
+[node name="BPM_Label" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 317.0
+margin_right = 70.0
+margin_bottom = 333.0
+custom_fonts/font = SubResource( 4 )
+text = "180 BPM"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

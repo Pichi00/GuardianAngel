@@ -4,6 +4,7 @@ var direction = Vector2(-1,0)
 var motion = Vector2(1,0)
 var speed = 20
 var jump_force = -800
+signal die
 
 func _ready():
 	randomize()
@@ -25,3 +26,7 @@ func _on_Timer_timeout():
 	jump()
 	$Timer.wait_time = rand_range(1.5, 2.5)
 	jump_force = rand_range(-850, -600)
+
+
+func die():
+	emit_signal("die")

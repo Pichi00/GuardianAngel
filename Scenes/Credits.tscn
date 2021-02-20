@@ -114,9 +114,8 @@ scale = Vector2( 0.712551, 0.706398 )
 texture = ExtResource( 3 )
 
 [node name="Wildcard" type="Sprite" parent="."]
-visible = false
-position = Vector2( 448, 426 )
-scale = Vector2( 0.161346, 0.15678 )
+position = Vector2( 549.861, 472 )
+scale = Vector2( 0.123903, 0.123648 )
 texture = ExtResource( 1 )
 
 [node name="Button" type="Button" parent="."]

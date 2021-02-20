@@ -4,23 +4,28 @@ func _ready():
 	update_labels()
 
 func _on_TwitterButton_pressed():
+# warning-ignore:return_value_discarded
 	OS.shell_open("https://twitter.com/PeterKoloDev")
 
 
 func _on_TextureButton_pressed():
+# warning-ignore:return_value_discarded
 	OS.shell_open("https://peterkolo.itch.io")
 
 
 func _on_PlayButton_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/Level.tscn")
 	global.points = 0
 
 
 func _on_CreditsButton_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/Credits.tscn")
 
 
 func _on_HowToPlayButton_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/HowToPlay.tscn")
 
 

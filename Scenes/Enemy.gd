@@ -4,6 +4,7 @@ var motion = Vector2(-1,0)
 var speed = 70
 var direction
 var granny_detected = false
+signal die
 
 func _ready():
 	randomize()
@@ -34,4 +35,8 @@ func move_toward_granny(delta):
 	
 	direction = direction_vector.normalized()
 	translate(direction * speed * delta)
+	
+
+func die():
+	emit_signal("die")
 
