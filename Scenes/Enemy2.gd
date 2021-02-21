@@ -25,7 +25,7 @@ func jump():
 func _on_Timer_timeout():
 	jump()
 	$Timer.wait_time = rand_range(1.5, 2.5)
-	jump_force = rand_range(-850, -600)
+	jump_force = rand_range(-830, -600)
 
 
 func die():

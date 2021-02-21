@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ComboLabel.tscn" type="PackedScene" id=3]
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=8]
 lifetime_randomness = 1.0
 flag_rotate_y = true
 flag_disable_z = true
@@ -39,7 +39,7 @@ amount = 35
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
-process_material = SubResource( 1 )
+process_material = SubResource( 8 )
 
 [node name="ComboLabel" parent="." instance=ExtResource( 3 )]
 [connection signal="die" from="Enemy" to="." method="_on_Enemy_die"]

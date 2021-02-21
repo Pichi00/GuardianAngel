@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wildcards.png-cda9032821100df3c28e5b370854c1d3.stex"
+path="res://.import/EnemySingleFrame1.png-127917b59b1bc6cad3ea85f3f5d8f930.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wildcards.png"
-dest_files=[ "res://.import/Wildcards.png-cda9032821100df3c28e5b370854c1d3.stex" ]
+source_file="res://Graphics/EnemySingleFrame1.png"
+dest_files=[ "res://.import/EnemySingleFrame1.png-127917b59b1bc6cad3ea85f3f5d8f930.stex" ]
 
 [params]
 

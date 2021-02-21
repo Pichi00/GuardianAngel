@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Graphics/Angel.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Arrow.png" type="Texture" id=2]
@@ -12,7 +12,8 @@
 [ext_resource path="res://Graphics/heart_border_back.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/HP_border.png" type="Texture" id=11]
 [ext_resource path="res://Graphics/BPM_Border.png" type="Texture" id=12]
-[ext_resource path="res://Graphics/Enemy.png" type="Texture" id=13]
+[ext_resource path="res://Fonts/Fipps-Regular.otf" type="DynamicFontData" id=13]
+[ext_resource path="res://Graphics/EnemySingleFrame1.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -40,6 +41,50 @@ animations = [ {
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Vanish"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -16.0, -16.0, -32.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("EnemySingleFrame1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="HowToPlay" type="Control"]
 anchor_right = 1.0
@@ -135,10 +180,10 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="."]
-margin_left = 272.0
-margin_top = 248.0
-margin_right = 818.0
-margin_bottom = 315.0
+margin_left = 312.0
+margin_top = 240.0
+margin_right = 858.0
+margin_bottom = 307.0
 custom_fonts/font = SubResource( 1 )
 text = "Hit multiple enemies with one shot
 to do the combo and gain more points"
@@ -200,9 +245,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Enemy" type="Sprite" parent="."]
+[node name="ComboLabel" type="Node2D" parent="."]
+position = Vector2( 880, 264 )
+scale = Vector2( 2, 2 )
+
+[node name="Label" type="Label" parent="ComboLabel"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -8.0
+margin_top = -16.0
+margin_right = 8.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 6 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemySingleFrame1" type="Sprite" parent="ComboLabel"]
 material = ExtResource( 7 )
-position = Vector2( 768, 192 )
-scale = Vector2( 2.92857, 3.16667 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ComboLabel"]
+autoplay = "Vanish"
+anims/Vanish = SubResource( 7 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -217,6 +217,7 @@ material = ExtResource( 3 )
 position = Vector2( 40, 176 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="BPM_Border" type="Sprite" parent="CanvasLayer"]
@@ -260,6 +261,7 @@ shape = SubResource( 6 )
 material = ExtResource( 3 )
 frames = SubResource( 12 )
 animation = "Idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -278,7 +280,7 @@ position = Vector2( -23, 0 )
 anims/Scared = SubResource( 14 )
 
 [node name="CalmDownTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 7.0
 autostart = true
 
 [node name="Scream" type="AudioStreamPlayer" parent="."]

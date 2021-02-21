@@ -4,11 +4,11 @@ export (PackedScene) var Enemy1
 export (PackedScene) var Enemy2
 export (PackedScene) var ComboLabel
 
-var E1_MIN = 0.7
-var E1_MAX = 3.0
+var E1_MIN = 0.4
+var E1_MAX = 2.2
 
-var E2_MIN = 0.7
-var E2_MAX = 3.0
+var E2_MIN = 0.4
+var E2_MAX = 2.2
 
 func _ready():
 	randomize()
