@@ -15,14 +15,12 @@ func _ready():
 	$EnemyDeathSound.volume_db = global.sfx
 
 func _on_Halo_body_entered(body):
-	
+	body.die()
 	$EnemyDeathSound.play()
 	global.combo += 1
 	global.points += (15 * global.combo)
 	if global.combo > global.best_combo:
 		global.best_combo = global.combo
-	body.die()
-	emit_signal("enemy_hit", body)
 
 func _physics_process(_delta):
 	match state:

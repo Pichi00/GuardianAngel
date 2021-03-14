@@ -34,7 +34,3 @@ func _on_E2Spawner_timeout():
 
 func _on_PointsTimer_timeout():
 	global.points += 10
-
-
-func _on_Halo_enemy_hit(body):
-	add_child(ComboLabel.instance())

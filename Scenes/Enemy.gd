@@ -39,4 +39,3 @@ func move_toward_granny(delta):
 
 func die():
 	emit_signal("die")
-

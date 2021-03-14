@@ -34,7 +34,6 @@ func _on_ScareArea_body_entered(body):
 		$CalmDownTimer.start()
 		update_heart()
 		if heartrate >= 180:
-			#emit_signal("game_over")
 			game_over()
 		state = SCARED
 
